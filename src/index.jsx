@@ -1,16 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {HashRouter, Route} from 'react-router-dom';
-import Home from './containers/Home.jsx';
-import Profile from './containers/Profile.jsx';
- 
-render(<Home />, document.getElementById('app'));
+import {HashRouter, Route, Link, NavLink} from 'react-router-dom';
+import Header from './components/header/Header.jsx';
+import Main from './containers/main/Main.jsx';
 
 //router
 render(
     <HashRouter>
-        <Route path="/" component={Home} />
-        <Route path="/profile" component={Profile}/>
+        <div id="clusterApp">
+            <Header />
+            <Main />
+        </div>
     </HashRouter>,
     document.getElementById('app')
 );

@@ -1,6 +1,8 @@
-$badass: #000;
-body { 
-  margin: 0; 
-  background-color: $badass; 
-  font-size: 12px;
+@import "../../utils/variables.scss";
+
+header {
+    width: 100%;
+    height: 64px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+    background: $header-back;
 }

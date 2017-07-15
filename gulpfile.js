@@ -18,7 +18,7 @@ gulp.task('css', function () {
     .pipe(gulp.dest(dossierCss));
 });
 
-gulp.task('minify', function () {
+gulp.task('minify', ['css'], function () {
   return gulp.src([dossierCss+'/style.css', dossierCss+'/normalize.css'])
     .pipe(plugins.csso())
     .pipe(plugins.rename({
@@ -30,7 +30,7 @@ gulp.task('minify', function () {
 plugins.livereload.listen();
 
 gulp.task('watch', function () {
-    gulp.watch(source + '/**/*.scss', ['build']);
+    gulp.watch(source + '/**/*.scss', ['css', 'minify']);
 });
 
 gulp.task('build', ['css', 'minify']);

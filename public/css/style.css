@@ -1,5 +1,15 @@
 body {
-  font-size: 12px;
-  margin: 0;
-  background-color: #000;
+  background: #fafafa;
 }
+
+
+header {
+  width: 100%;
+  height: 64px;
+  background: #2f4154;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+
+
+
