@@ -1,5 +1,12 @@
 @import 'variables.scss';
 
-body {
+
+* {
+    box-sizing: border-box;
+    font-family: 'Acme', sans-serif;
+}
+
+html, body, #app, #clusterApp {
+    height: 100%;
     background: $white;
 }

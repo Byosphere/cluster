@@ -17,10 +17,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     module: {
-        loaders: [{
-            test: /\.jsx?/,
-            loaders: ['react-hot', 'babel'],
-            include: path.join(__dirname, 'src')
-        }]
+        loaders: [
+            {test: /\.jsx?/, loaders: ['react-hot', 'babel'], include: path.join(__dirname, 'src')},
+            {test: /\.(png|jpg)$/, loader: 'url?limit=25000', include: path.join(__dirname, 'public')}
+        ]
     }
 };

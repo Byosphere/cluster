@@ -1,0 +1,6 @@
+@import "../../utils/variables.scss";
+
+main {
+    height: calc(100% - #{$headerHeight});
+    padding-top: 1rem;
+}

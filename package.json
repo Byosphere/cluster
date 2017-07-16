@@ -13,10 +13,14 @@
   "author": "Yohann CAILLON",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
+    "halogen": "^0.2.0",
     "react": "^15.1.0",
+    "react-axios": "^1.0.2",
     "react-dom": "^15.1.0",
     "react-notification-system": "^0.2.14",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-svg": "^2.1.21"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

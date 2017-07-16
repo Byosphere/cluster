@@ -10,7 +10,6 @@ class Header extends React.Component {
 
   _addNotifications(event) {
     event.preventDefault();
-    console.log(this._notificationSystem);
     this._notificationSystem.addNotification({
       message: 'Notification message',
       level: 'success'
@@ -27,7 +26,7 @@ class Header extends React.Component {
         <header> 
           
         </header>
-        <button onClick={(e) => this._addNotifications(e)}>Add notification</button>
+        {/* <button onClick={(e) => this._addNotifications(e)}>Add notification</button> */}
         <NotificationSystem ref="notificationSystem" />
       </div>
     );
