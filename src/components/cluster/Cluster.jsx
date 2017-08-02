@@ -3,7 +3,6 @@ import { Get } from 'react-axios';
 import {MoonLoader} from 'halogen';
 import axios from 'axios';
 import Flag from '../flag/Flag.jsx';
-import {Link} from 'react-router-dom';
 
 class Cluster extends React.Component {
 

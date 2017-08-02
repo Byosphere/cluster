@@ -5,5 +5,36 @@ header {
     height: $headerHeight;
     box-shadow: 0 2px 5px rgba(0,0,0,.26);
     background: $header-back;
-    
+    display: flex;
+    align-items: center;
+    min-width: 600px;
+
+    h1 {
+        margin: 0 1rem;
+        text-shadow: 1px 3px 1px #def, 0 0 0 #000, 1px 3px 1px #def;
+        transform: rotate(-2deg);
+        position: relative;
+
+        a, a:focus, a:active, a:visited {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+        }
+
+        &::before {
+            font-size: 1.5em;
+            font-weight: 400;
+            position: absolute;
+            z-index: -1;
+            top: -16px;
+            left: -2px;
+            content: '\1F30D';
+            opacity: .8;
+            color: #2196f3;
+        }
+    }
+
+    .navIcon {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
 }

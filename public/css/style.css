@@ -31,6 +31,31 @@ body,
   background: #fafafa;
 }
 
+.navlink {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 64px;
+  margin-left: 1rem;
+  padding: 0 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+}
+
+.navlink.active {
+  opacity: 1;
+  border-bottom-color: #18ffff;
+}
+
+.navlink.disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: .5;
+}
+
+
 
 @-webkit-keyframes cluster-pulse {
   from {
@@ -241,11 +266,51 @@ body,
 
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
+  min-width: 600px;
   height: 64px;
   background: #2f4154;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
           box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  position: relative;
+  margin: 0 1rem;
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+  text-shadow: 1px 3px 1px #def, 0 0 0 #000, 1px 3px 1px #def;
+}
+
+header h1 a,
+header h1 a:focus,
+header h1 a:active,
+header h1 a:visited {
+  text-decoration: none;
+  color: rgba(255, 255, 255, .8);
+}
+
+header h1::before {
+  font-size: 1.5em;
+  font-weight: 400;
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  left: -2px;
+  content: '\1F30D';
+  opacity: .8;
+  color: #2196f3;
+}
+
+header .navIcon {
+  margin-right: 1rem;
+  margin-left: auto;
 }
 
 
