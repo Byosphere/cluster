@@ -1,0 +1,45 @@
+@import "../../utils/variables.scss";
+
+#headProfile>div {
+    position: absolute;
+    top: 0;
+    right: calc(32px + 1rem);
+    display: grid;
+    grid-template-columns: [first] 30px [col2] 30px [col3] 30px [col4] 30px [col5] auto [end];
+    grid-template-rows:[line1] 30px [line2] 30px [line3] 40px [line3];
+    grid-template-areas:". profile1 profile2 profile3 self" "profile4 profile5 profile6 profile7 self" ". . . . self";
+
+    @for $i from 1 to 8 {
+        .profile:nth-child(#{$i}) {
+            grid-area: profile#{$i};
+        }
+    }
+
+    .profile:last-child {
+        grid-area: self;
+        border-radius: 0;
+        display: flex;
+        justify-content: flex-start;
+
+        .inner {
+            width: 90px;
+            height: 90px;
+            border: 5px solid $primaryColor;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,.26);
+        }
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .profile {
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 5px;
+        img {
+            width: 100%;
+        }
+    }
+}

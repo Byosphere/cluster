@@ -30,8 +30,8 @@ class Header extends React.Component {
         <header>
           <h1><NavLink to="/home">CLUSTER 8</NavLink></h1>
           <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
-          <NavLink to="/mycluster" className="navlink disabled" activeClassName="active">MY CLUSTER</NavLink>
-          <NavLink to="/profile" className="navlink" activeClassName="active">MY PROFILE</NavLink>
+          <NavLink to="/mycluster" className="navlink disabled" activeClassName="active">CLUSTER</NavLink>
+          <NavLink to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
           <HeadProfile />
           <NavLink to="/parameters" className="navIcon" activeClassName="active"><img src="../../../public/images/icons/parameters.svg" alt="parameters_icon"/></NavLink>
         </header>

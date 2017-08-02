@@ -56,7 +56,6 @@ body,
 }
 
 
-
 @-webkit-keyframes cluster-pulse {
   from {
     background-color: red;
@@ -265,6 +264,78 @@ body,
 }
 
 
+#headProfile > div {
+  position: absolute;
+  top: 0;
+  right: calc(32px + 1rem);
+  display: grid;
+  grid-template-columns: [first] 30px [col2] 30px [col3] 30px [col4] 30px [col5] auto [end];
+  grid-template-rows: [line1] 30px [line2] 30px [line3] 40px [line3];
+  grid-template-areas: '. profile1 profile2 profile3 self' 'profile4 profile5 profile6 profile7 self' '. . . . self';
+}
+
+#headProfile > div .profile:nth-child(1) {
+  grid-area: profile1;
+}
+
+#headProfile > div .profile:nth-child(2) {
+  grid-area: profile2;
+}
+
+#headProfile > div .profile:nth-child(3) {
+  grid-area: profile3;
+}
+
+#headProfile > div .profile:nth-child(4) {
+  grid-area: profile4;
+}
+
+#headProfile > div .profile:nth-child(5) {
+  grid-area: profile5;
+}
+
+#headProfile > div .profile:nth-child(6) {
+  grid-area: profile6;
+}
+
+#headProfile > div .profile:nth-child(7) {
+  grid-area: profile7;
+}
+
+#headProfile > div .profile:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0;
+  grid-area: self;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#headProfile > div .profile:last-child .inner {
+  width: 90px;
+  height: 90px;
+  border: 5px solid #2f4154;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+
+#headProfile > div .profile:last-child img {
+  height: 100%;
+}
+
+#headProfile > div .profile {
+  overflow: hidden;
+  margin: 5px;
+  border-radius: 50%;
+}
+
+#headProfile > div .profile img {
+  width: 100%;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -314,8 +385,10 @@ header .navIcon {
 }
 
 
+
 main {
   height: calc(100% - 64px);
   padding-top: 1rem;
 }
+
 
