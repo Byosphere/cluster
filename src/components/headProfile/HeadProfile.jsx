@@ -1,5 +1,6 @@
 import React from 'react';
 import { Get } from 'react-axios';
+import {ScaleLoader} from 'halogen';
 
 class HeadProfile extends React.Component {
 
@@ -9,7 +10,15 @@ class HeadProfile extends React.Component {
         <Get url="https://randomuser.me/api/?results=8">
   {(error, response, isLoading) => {
       if(isLoading) {
-          return  (<div></div>);
+          return  (
+              <div>
+                <div key={i} className="profile-load">
+                    <div className="inner">
+                        <ScaleLoader color="#18ffff" size="60px" className="loader"/>
+                    </div>
+                </div>
+            </div>
+          );
       } else if (response != null) {
           var retour = [];
           for (var i=0; i<8; i++) {

@@ -266,7 +266,7 @@ body,
 
 #headProfile > div {
   position: absolute;
-  top: 0;
+  top: 2px;
   right: calc(32px + 1rem);
   display: grid;
   grid-template-columns: [first] 30px [col2] 30px [col3] 30px [col4] 30px [col5] auto [end];
@@ -302,10 +302,13 @@ body,
   grid-area: profile7;
 }
 
-#headProfile > div .profile:last-child {
+#headProfile > div .profile:last-child,
+#headProfile > div .profile-load {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0 10px;
+  border: none;
   border-radius: 0;
   grid-area: self;
   -webkit-box-pack: start;
@@ -313,27 +316,48 @@ body,
           justify-content: flex-start;
 }
 
-#headProfile > div .profile:last-child .inner {
+#headProfile > div .profile:last-child .inner,
+#headProfile > div .profile-load .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 90px;
   height: 90px;
   border: 5px solid #2f4154;
   border-radius: 4px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  background: #2f4154;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .26);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, .26);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#headProfile > div .profile:last-child img {
+#headProfile > div .profile:last-child img,
+#headProfile > div .profile-load img {
   height: 100%;
 }
 
 #headProfile > div .profile {
   overflow: hidden;
-  margin: 5px;
+  margin: 1px;
+  border: 2px solid rgba(0, 0, 0, .5);
   border-radius: 50%;
 }
 
 #headProfile > div .profile img {
   width: 100%;
+}
+
+#headProfile > div .profile.online {
+  border: 2px solid #8bc34a;
+}
+
+#headProfile > div .profile.inactive {
+  border: 2px solid #ff9800;
 }
 
 header {
@@ -384,11 +408,32 @@ header .navIcon {
   margin-left: auto;
 }
 
+#sidebar {
+  width: 256px;
+  height: 100%;
+  color: #212121;
+  border-left: 1px solid rgba(0, 0, 0, .14);
+  background: white;
+}
+
 
 
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: calc(100% - 64px);
-  padding-top: 1rem;
+  background: #fafafa;
+}
+
+main > div:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main > div {
+  padding-top: 30px;
 }
 
 
