@@ -2,5 +2,14 @@
 
 main {
     height: calc(100% - #{$headerHeight});
-    padding-top: 1rem;
+    display: flex;
+    background: #fafafa;
+
+    &>div:first-child {
+        flex: 1;
+    }
+
+    &>div {
+        padding-top:30px;
+    }
 }

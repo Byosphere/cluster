@@ -5,7 +5,7 @@ class Flag extends React.Component {
 
     constructor(props) {
         super(props);
-        this.flag = "../../../public/images/flags/"+this.props.nat+".svg";
+        this.flag = "../../../public/images/flags/"+this.props.nat.toLowerCase()+".svg";
     }
 
     render() {

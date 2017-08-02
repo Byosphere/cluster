@@ -10,3 +10,27 @@ html, body, #app, #clusterApp {
     height: 100%;
     background: $white;
 }
+
+.navlink {
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 64px;
+    padding: 0 16px;
+    margin-left: 1rem;
+    color: #fff;
+    border-bottom: 3px solid transparent;
+    font-family: $mainFont;
+
+    &.active {
+        opacity: 1;
+        border-bottom-color: #18FFFF;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+    }
+}
