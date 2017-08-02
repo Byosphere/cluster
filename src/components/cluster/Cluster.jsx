@@ -4,9 +4,14 @@ import {MoonLoader} from 'halogen';
 import axios from 'axios';
 import Flag from '../flag/Flag.jsx';
 import {Link} from 'react-router-dom';
+import ProfileImage from '../profileImage/ProfileImage.jsx';
 
 class Cluster extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
         return (
             <div id="cluster">
@@ -20,12 +25,13 @@ class Cluster extends React.Component {
                                 var retour = [];
                                 for (var i=0; i<8; i++) {
                                     if(response.data.results[i]) {
+                                        var currentItem = response.data.results[i];
                                         retour.push(
                                             <div key={i} className="profile">
                                                 <div className="inner">
-                                                    <Flag nat={response.data.results[i].nat} />
-                                                    <div className="img-wrapper"><img src={response.data.results[i].picture.large} alt=""/></div>
-                                                    <div className="name">{response.data.results[i].name.first}</div>
+                                                    <Flag nat={currentItem.nat} />
+                                                    <ProfileImage user={currentItem} />
+                                                    <div className="name">{currentItem.name.first}</div>
                                                 </div>
                                             </div>
                                         );

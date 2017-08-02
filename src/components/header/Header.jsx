@@ -1,11 +1,14 @@
 import React from 'react';
 import NotificationSystem from 'react-notification-system';
+import Dispatcher from '../../Dispatcher';
+import HeaderStore from '../../stores/HeaderStore';
  
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
     this._notificationSystem = null;
+
   }
 
   _addNotifications(event) {
