@@ -12,6 +12,7 @@ class Main extends React.Component {
         <main>
             <Switch>
                 <Route path='/home' component={Home} />
+                <Route path='/profile/:id' component={Profile} />
                 <Route path='/profile' component={Profile} />
                 <Route path='/404' component={NotFound} />
                 <Route path='/parameters' component={Parameters} />

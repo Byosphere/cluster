@@ -1,7 +1,4 @@
 import React from 'react';
-import NotificationSystem from 'react-notification-system';
-import Dispatcher from '../../Dispatcher';
-import HeaderStore from '../../stores/HeaderStore';
 import {NavLink} from 'react-router-dom';
 import HeadProfile from '../headProfile/HeadProfile.jsx';
 import {browserHistory} from 'react-router';
@@ -11,18 +8,6 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this._notificationSystem = null;
-  }
-
-  _addNotifications(event) {
-    event.preventDefault();
-    this._notificationSystem.addNotification({
-      message: 'Notification message',
-      level: 'success'
-    });
-  }
-
-  componentDidMount() {
-    this._notificationSystem = this.refs.notificationSystem;
   }
 
   render () {
@@ -37,7 +22,6 @@ class Header extends React.Component {
           <NavLink to="/parameters" className="navIcon" activeClassName="active"><img src="../../../public/images/icons/parameters.svg" alt="parameters_icon"/></NavLink>
         </header>
          {/* <button onClick={(e) => this._addNotifications(e)}>Add notification</button>  */}
-        <NotificationSystem ref="notificationSystem" />
       </div>
     );
   }

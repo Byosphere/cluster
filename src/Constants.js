@@ -1,8 +1,3 @@
 'use strict';
 
-const ActionTypes = {
-    SEND_NOTIFICATION: "send_notification"
-}
-
-
-export default ActionTypes;
+export const SEND_NOTIFICATION = "send_notification";

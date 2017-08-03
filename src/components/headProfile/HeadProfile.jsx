@@ -1,6 +1,7 @@
 import React from 'react';
 import { Get } from 'react-axios';
 import {ScaleLoader} from 'halogen';
+import ProfileImage from '../profileImage/ProfileImage.jsx';
 
 class HeadProfile extends React.Component {
 
@@ -26,7 +27,7 @@ class HeadProfile extends React.Component {
                   retour.push(
                       <div key={i} className="profile">
                           <div className="inner">
-                              <div className="img-wrapper"><img src={response.data.results[i].picture.large} alt=""/></div>
+                            <ProfileImage user={response.data.results[i]} />
                           </div>
                       </div>
                   );

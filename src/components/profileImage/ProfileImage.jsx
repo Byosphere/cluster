@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import ActionTypes from '../../Constants';
-import Dispatcher from '../../Dispatcher';
-import HeaderActions from '../../actions/HeaderActions'
+// import { addNotification } from '../../actions/notificationAction.jsx';
 
 class ProfileImage extends React.Component {
 
@@ -9,17 +10,18 @@ class ProfileImage extends React.Component {
         super(props);
     }
 
-    onClickProfile() {
-        HeaderActions.sendNotification(this.props.user.name.first);
-    }
+    // onClickProfile() {
+    //     const { dispatch } = this.props;
+    //     dispatch(addNotification(this.props.user.name.first, 'warning'));
+    // }
 
     render() {
         return (
-            <div className="img-wrapper" onClick={(e) => this.onClickProfile()}>
+            <Link to={"/profile/"+this.props.user.name.first+this.props.user.name.last} className="img-wrapper profile-image">
                 <img src={this.props.user.picture.large} alt="" />
-            </div>
+            </Link>
         );
     }
 }
 
-export default ProfileImage;
+export default connect() (ProfileImage);

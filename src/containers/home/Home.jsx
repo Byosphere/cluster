@@ -4,8 +4,9 @@ import Cluster from '../../components/cluster/Cluster.jsx';
 class Home extends React.Component {
   render () {
     return (
-      
-      <Cluster />
+      <div id="home">
+        <Cluster />
+      </div>
     );
   }
 }

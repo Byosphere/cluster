@@ -130,6 +130,7 @@ body,
   left: 25px;
   width: calc(100% - 50px);
   height: calc(100% - 50px);
+  pointer-events: none;
 }
 
 #cluster .circle .profile .inner {
@@ -163,6 +164,8 @@ body,
   overflow: hidden;
   width: 100px;
   height: 100px;
+  cursor: pointer;
+  pointer-events: auto;
   border: 1px solid rgba(0, 0, 0, .12);
   border-radius: 50%;
 }
@@ -339,6 +342,7 @@ body,
 #headProfile > div .profile:last-child img,
 #headProfile > div .profile-load img {
   height: 100%;
+  border: 1px solid rgba(0, 0, 0, .3);
 }
 
 #headProfile > div .profile {
@@ -408,6 +412,10 @@ header .navIcon {
   margin-left: auto;
 }
 
+.profile-image {
+  cursor: pointer;
+}
+
 #sidebar {
   width: 256px;
   height: 100%;
@@ -432,7 +440,8 @@ main > div:first-child {
           flex: 1;
 }
 
-main > div {
+main > div,
+main > aside {
   padding-top: 30px;
 }
 
