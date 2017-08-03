@@ -56,6 +56,7 @@ body,
 }
 
 
+
 @-webkit-keyframes cluster-pulse {
   from {
     background-color: red;
@@ -426,6 +427,22 @@ header .navIcon {
 
 
 
+#home .main-content {
+  width: 100%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#home .main-content h2 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2f4154;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -435,12 +452,12 @@ main {
 }
 
 main > div:first-child {
+  overflow-y: scroll;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-main > div,
 main > aside {
   padding-top: 30px;
 }

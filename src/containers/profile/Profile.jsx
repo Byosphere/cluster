@@ -8,7 +8,9 @@ class Profile extends React.Component {
 
   render () {
     return (
-        <div id="profile"><p>Bonjour {this.props.match.params.id}</p></div>
+        <div id="profile">
+            <p>Bonjour {this.props.match.params.id}</p>
+        </div>
     );
   }
 }
