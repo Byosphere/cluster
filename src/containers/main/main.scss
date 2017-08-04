@@ -9,7 +9,7 @@ main {
         flex: 1;
     }
 
-    &>div {
+    &>div, &>aside {
         padding-top:30px;
     }
 }
