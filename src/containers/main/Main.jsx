@@ -11,6 +11,7 @@ class Main extends React.Component {
   render () {
     return (
         <main>
+            <Sidebar></Sidebar>
             <Switch>
                 <Route path='/home' component={Home} />
                 <Route path='/profile/:id' component={Profile} />
@@ -21,7 +22,6 @@ class Main extends React.Component {
                 <Route exact path='/' component={Home} />
                 <Redirect to="/404" />
             </Switch>
-            <Sidebar></Sidebar>
         </main>
     );
   }

@@ -6,7 +6,7 @@ main {
     background: #fafafa;
 
     // container de la page affichee
-    &>div:first-child {
+    &>div {
         flex: 1;
         overflow-y: auto;
     }

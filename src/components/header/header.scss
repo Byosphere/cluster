@@ -38,4 +38,12 @@ header {
         margin-right: 1rem;
 
     }
+
+    .disconnected-menu, .connected-menu {
+        height: 100%;
+
+        .navlink {
+            height: 100%;
+        }
+    }
 }

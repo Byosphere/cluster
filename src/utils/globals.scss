@@ -22,6 +22,7 @@ html, body, #app, #clusterApp {
     border-bottom: 3px solid transparent;
     font-family: $mainFont;
     display: block;
+    height: calc(100% - 1px);
 
     &.active {
         opacity: 1;
