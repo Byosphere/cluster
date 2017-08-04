@@ -3,7 +3,9 @@ import React from 'react';
 class Parameters extends React.Component {
   render () {
     return (
-      <p>parameters</p>
+      <div>
+        <p>parameters</p>
+      </div>
     );
   }
 }

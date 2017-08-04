@@ -1,6 +1,5 @@
 @import 'variables.scss';
 
-
 * {
     box-sizing: border-box;
     font-family: 'Acme', sans-serif;
@@ -22,10 +21,11 @@ html, body, #app, #clusterApp {
     color: #fff;
     border-bottom: 3px solid transparent;
     font-family: $mainFont;
+    display: block;
 
     &.active {
         opacity: 1;
-        border-bottom-color: #18FFFF;
+        border-bottom-color: $highlight;
     }
 
     &.disabled {
@@ -33,4 +33,21 @@ html, body, #app, #clusterApp {
         cursor: default;
         pointer-events: none;
     }
+}
+
+.main-content {
+    width: 100%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    h2 {
+        color:$primaryColor;
+        font-family: $titleFont;
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
 }

@@ -5,11 +5,13 @@ main {
     display: flex;
     background: #fafafa;
 
+    // container de la page affichee
     &>div:first-child {
         flex: 1;
+        overflow-y: auto;
     }
 
-    &>div, &>aside {
+    &>aside {
         padding-top:30px;
     }
 }

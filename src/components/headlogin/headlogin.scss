@@ -1,0 +1,13 @@
+#headLogin {
+    position: absolute;
+    right: 1rem;
+
+    form {
+        display: flex;
+        align-items: center;
+    }
+
+    .loader {
+        width: 88px;
+    }
+}
