@@ -5,6 +5,13 @@ import ProfileImage from '../profileImage/ProfileImage.jsx';
 
 class HeadProfile extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            
+        };
+    }
+
   render () {
     return (
       <div id="headProfile">

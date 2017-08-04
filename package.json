@@ -13,8 +13,11 @@
   "author": "Yohann CAILLON",
   "license": "ISC",
   "dependencies": {
+    "Validator": "^1.0.5",
     "axios": "^0.16.2",
     "halogen": "^0.2.0",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.18.7",
     "react": "^15.1.0",
     "react-axios": "^1.0.2",
     "react-dom": "^15.1.0",
@@ -23,7 +26,8 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "react-svg": "^2.1.21",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
