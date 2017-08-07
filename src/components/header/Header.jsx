@@ -25,32 +25,30 @@ class Header extends React.Component {
         const isConnected = this.props.auth.isAuthenticated;
 
         return (
-            <div>
-                <header>
-                    <h1><NavLink to="/home">CLUSTER 8</NavLink></h1>
-                    <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
-                    {isConnected && <div className="connected-menu">
-                        <NavLink to="/mycluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
-                        <NavLink to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
-                        <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
-                        <HeadProfile />
-                        <FlatButton style={{ position: 'absolute', right: '.5rem', top: '14px' }} label="Logout" secondary={true} onClick={this.logout.bind(this)} />
-                    </div>}
-                    <NavLink to="/more" className="navlink" activeClassName="active">LEARN MORE</NavLink>
-                    {!isConnected && <div className="disconnected-menu">
-                        <NavLink to="/signup" className="navlink" activeClassName="active">SIGN UP</NavLink>
-                        <HeadLogin />
-                    </div>}
-                </header>
-            </div>
+            <header>
+                <h1><NavLink to="/home">CLUSTER 8</NavLink></h1>
+                <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
+                {isConnected && <div className="connected-menu">
+                    <NavLink to="/mycluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
+                    <NavLink to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
+                    <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
+                    <HeadProfile />
+                    <FlatButton style={{ position: 'absolute', right: '.5rem', top: '14px' }} label="Logout" secondary={true} onClick={this.logout.bind(this)} />
+                </div>}
+                <NavLink to="/more" className="navlink" activeClassName="active">LEARN MORE</NavLink>
+                {!isConnected && <div className="disconnected-menu">
+                    <NavLink to="/signup" className="navlink" activeClassName="active">SIGN UP</NavLink>
+                    <HeadLogin />
+                </div>}
+            </header>
         );
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         auth:state.auth
     }
 }
 
-export default connect(mapStateToProps, { logout }) (Header);
+export default connect(mapStateToProps, { logout }, undefined, { pure: false }) (Header);
