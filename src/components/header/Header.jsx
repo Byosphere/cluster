@@ -30,7 +30,7 @@ class Header extends React.Component {
                 <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
                 {isConnected && <div className="connected-menu">
                     <NavLink to="/mycluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
-                    <NavLink to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
+                    <NavLink exact to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
                     <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
                     <HeadProfile />
                     <FlatButton style={{ position: 'absolute', right: '.5rem', top: '14px' }} label="Logout" secondary={true} onClick={this.logout.bind(this)} />

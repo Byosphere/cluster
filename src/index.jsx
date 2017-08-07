@@ -13,7 +13,7 @@ const store = configureStore();
 
 if(localStorage.jwtToken) {
     //setAuthorisationToken(localStorage.jwtToken)
-    store.dispatch(setCurrentUser({id:1, name:"Machin"}));
+    store.dispatch(setCurrentUser({id:1, name: {first:"Machin", last:'Trus'}}));
 }
 
 //router
