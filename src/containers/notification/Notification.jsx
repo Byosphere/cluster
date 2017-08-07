@@ -15,11 +15,11 @@ class Notification extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { message, level } = newProps.notification;
+    const { message, level, position } = newProps.notification;
     this.notificationSystem.addNotification({
       message,
       level,
-      position:"bc"
+      position:"tc"
     });
   }
 

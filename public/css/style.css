@@ -37,6 +37,7 @@ body,
   font-weight: 500;
   line-height: 64px;
   display: block;
+  height: calc(100% - 1px);
   margin-left: 1rem;
   padding: 0 16px;
   text-decoration: none;
@@ -71,6 +72,31 @@ body,
   font-weight: bold;
   color: #2f4154;
 }
+
+
+
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100% - 64px);
+  background: #fafafa;
+}
+
+main > div {
+  overflow-y: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main > aside {
+  padding-top: 30px;
+}
+
+
+
 
 
 
@@ -288,7 +314,7 @@ body,
 #headProfile > div {
   position: absolute;
   top: 2px;
-  right: calc(32px + 1rem);
+  right: 100px;
   display: grid;
   grid-template-columns: [first] 30px [col2] 30px [col3] 30px [col4] 30px [col5] auto [end];
   grid-template-rows: [line1] 30px [line2] 30px [line3] 40px [line3];
@@ -430,61 +456,36 @@ header .navIcon {
   margin-left: auto;
 }
 
-#headLogin {
-  position: absolute;
-  right: 1rem;
-}
-
-#headLogin form {
+header .disconnected-menu,
+header .connected-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 100%;
 }
 
-#headLogin .loader {
-  width: 88px;
+header .disconnected-menu .navlink,
+header .connected-menu .navlink {
+  height: 100%;
+}
+
+.headLoginModal > div {
+  max-width: calc(100% - 1rem);
+  margin-left: 2rem;
 }
 
 .profile-image {
   cursor: pointer;
 }
 
-.signupform {
-  margin-left: 1rem;
-}
-
-
 #sidebar {
   width: 256px;
   height: 100%;
   color: #212121;
-  border-left: 1px solid rgba(0, 0, 0, .14);
+  border-right: 1px solid rgba(0, 0, 0, .14);
   background: white;
 }
 
-
-
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: calc(100% - 64px);
-  background: #fafafa;
+.signupform {
+  margin-left: 1rem;
 }
-
-main > div:first-child {
-  overflow-y: auto;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-main > aside {
-  padding-top: 30px;
-}
-
-
-

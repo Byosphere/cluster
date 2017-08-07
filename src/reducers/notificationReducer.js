@@ -5,7 +5,8 @@ export default function notification(state = {}, action) {
         case SEND_NOTIFICATION:
             return Object.assign({}, state, {
                 message: action.message,
-                level: action.level
+                level: action.level,
+                position: action.position
             });
 
         default:

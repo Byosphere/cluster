@@ -7,8 +7,15 @@ import Main from './containers/main/Main.jsx';
 import Notification from './containers/notification/Notification.jsx';
 import configureStore from './store.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {setCurrentUser} from './actions/loginActions.jsx';
 
 const store = configureStore();
+
+if(localStorage.jwtToken) {
+    //setAuthorisationToken(localStorage.jwtToken)
+    store.dispatch(setCurrentUser({id:1, name:"Machin"}));
+}
+
 //router
 render(
     <MuiThemeProvider>

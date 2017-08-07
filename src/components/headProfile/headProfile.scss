@@ -1,9 +1,9 @@
-@import "../../utils/variables.scss";
+@import "../../style/variables.scss";
 
 #headProfile>div {
     position: absolute;
     top: 2px;
-    right: calc(32px + 1rem);
+    right: 100px;
     display: grid;
     grid-template-columns: [first] 30px [col2] 30px [col3] 30px [col4] 30px [col5] auto [end];
     grid-template-rows:[line1] 30px [line2] 30px [line3] 40px [line3];

@@ -1,4 +1,4 @@
-@import "../../utils/variables.scss";
+@import "../../style/variables.scss";
 
 header {
     width: 100%;
@@ -41,6 +41,7 @@ header {
 
     .disconnected-menu, .connected-menu {
         height: 100%;
+        display: flex;
 
         .navlink {
             height: 100%;

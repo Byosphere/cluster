@@ -5,6 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import { DotLoader } from 'halogen';
 import validateInput from '../../validators/login';
 import { login } from '../../actions/loginActions.jsx';
+import { addNotification } from '../../actions/notificationAction.jsx';
 import Dialog from 'material-ui/Dialog';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
@@ -47,9 +48,14 @@ class HeadLogin extends React.Component {
             this.props.login(this.state).then(
                 (res) => {
                     this.setState({ isLoading: false });
-                    this.handleClose()
+                    this.handleClose();
                 },
-                (err) => this.setState({ errors: { form: err }, isLoading: false })
+                (err) => {
+                    this.setState({ errors: { form: err }, isLoading: false });
+                    if(this.state.errors.form) {
+                        this.props.addNotification(this.state.errors.form,"error");
+                    }
+                }
             );
         }
     }
@@ -100,7 +106,8 @@ class HeadLogin extends React.Component {
             <div>
                 <FlatButton label="Login" style={{ position: 'absolute', right: '1rem', top: '14px' }} primary={true} onClick={this.handleOpen} />
                 <Dialog
-                    id="headLogin"
+                    bodyClassName="headLoginModal"
+                    paperClassName="modal"
                     title="Log in to your Cluster"
                     actions={actions}
                     modal={false}
@@ -124,19 +131,11 @@ class HeadLogin extends React.Component {
                         errorText={this.state.errors.password}
                     />
                     <Toggle onToggle={this.onToggle} label="Stay connected" style={{marginTop:'1rem'}} labelPosition="right" />
-                    {this.state.errors.form && <Subheader style={{ color: 'rgb(244, 67, 54)', textAlign: 'right' }}><ErrorIcon style={{color: 'rgb(244, 67, 54)'}} />{this.state.errors.form}</Subheader>}
+                    {/* {this.state.errors.form && <Subheader className="error" style={{ color: 'rgb(244, 67, 54)', textAlign: 'right' }}><ErrorIcon style={{color: 'rgb(244, 67, 54)'}} />{this.state.errors.form}</Subheader>} */}
                 </Dialog>
             </div>
-            // <div >
-
-            //     <form onSubmit={this.onSubmit}>
-
-            //         {!this.state.isLoading && <FlatButton type="submit" label="Log in" primary={true} />}
-            //         {this.state.isLoading && <DotLoader className="loader" color="#18FFFF" size="40px" />}
-            //     </form>
-            // </div>
         );
     }
 }
 
-export default connect(null, { login })(HeadLogin);
+export default connect(null, { login, addNotification })(HeadLogin);
