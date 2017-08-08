@@ -59,7 +59,7 @@ class Profile extends React.Component {
             <div id="profile">
                 <div className="main-content">
                     <Card className="card">
-                        <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '') + "'s Profile"} subtitle="You can modify here your public profile. Having a good profile help to find a Cluster." />
+                        <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '')} subtitle="You can modify here your public profile. Having a good profile help to find a Cluster." />
                         <CardText>
                             <div>
                                 <img src={user.picture ? user.picture.large : ''} alt={(user.name ? user.name.first + " " + user.name.last : '') + "'s Profile"} />

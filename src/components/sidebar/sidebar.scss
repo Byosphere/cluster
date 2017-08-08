@@ -1,9 +1,18 @@
 @import "../../style/variables.scss";
 
 #sidebar {
-    border-right: 1px solid rgba(0,0,0,.14);
+    
     color: #212121;
     width: 256px;
     height: 100%;
     background: white;
+
+    &.left {
+        border-right: 1px solid rgba(0,0,0,.14);
+        order: 1;
+    }
+    &.right {
+        border-left: 1px solid rgba(0,0,0,.14);
+        order: 2;
+    }
 }

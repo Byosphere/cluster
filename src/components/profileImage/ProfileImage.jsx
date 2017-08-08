@@ -10,15 +10,17 @@ class ProfileImage extends React.Component {
         super(props);
     }
 
-    // onClickProfile() {
-    //     const { dispatch } = this.props;
-    //     dispatch(addNotification(this.props.user.name.first, 'warning'));
-    // }
-
     render() {
+        let link = '';
+        if(this.props.isUser) {
+            link = "/profile";
+        } else {
+            link = "/profile/"+this.props.user.name.first+this.props.user.name.last;
+        }
+
         return (
-            <Link to={"/profile/"+this.props.user.name.first+this.props.user.name.last} className="img-wrapper profile-image">
-                <img src={this.props.user.picture.large} alt="" />
+            <Link to={link} className="img-wrapper profile-image">
+                <img src={this.props.user.picture ? this.props.user.picture.large : '../../../../public/images/images/main.jpg'} alt="" />
             </Link>
         );
     }

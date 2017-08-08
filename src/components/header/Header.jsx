@@ -32,7 +32,7 @@ class Header extends React.Component {
                     <NavLink to="/mycluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
                     <NavLink exact to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
                     <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
-                    <HeadProfile />
+                    <HeadProfile user={this.props.auth.user} hasCluster={this.state.hasCluster} />
                     <FlatButton style={{ position: 'absolute', right: '.5rem', top: '14px' }} label="Logout" secondary={true} onClick={this.logout.bind(this)} />
                 </div>}
                 <NavLink to="/more" className="navlink" activeClassName="active">LEARN MORE</NavLink>
@@ -45,7 +45,7 @@ class Header extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
         auth:state.auth
     }

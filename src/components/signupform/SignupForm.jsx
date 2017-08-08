@@ -4,6 +4,7 @@ import { userSignupRequest } from '../../actions/userRequests.jsx';
 import { browserHistory } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
 
 class SignupForm extends React.Component {
 
@@ -73,10 +74,7 @@ class SignupForm extends React.Component {
                         onChange={this.onChange}
                     />
                 </div>
-                <div>
-
-                </div>
-                <button>Submit</button>
+                <FlatButton label="Register" primary={true} />
             </form>
         );
     }
