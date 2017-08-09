@@ -6,7 +6,7 @@ main {
     background: #fafafa;
 
     // container de la page affichee
-    &>div:last-child {
+    &>div.wrapper {
         flex: 3;
         overflow-y: auto;
         order: 1;

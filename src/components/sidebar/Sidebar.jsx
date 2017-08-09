@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
                             Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                         </CardText>
                         <CardActions>
-                            <FlatButton label="Send a message" primary={true} />
+                            <FlatButton label="Send a private message" primary={true} />
                             <FlatButton label="Dismiss" secondary={true} />
                         </CardActions>
                     </Card>

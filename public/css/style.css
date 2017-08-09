@@ -736,7 +736,7 @@ main {
   background: #fafafa;
 }
 
-main > div:last-child {
+main > div.wrapper {
   overflow-y: auto;
   min-width: 400px;
   -webkit-box-flex: 3;

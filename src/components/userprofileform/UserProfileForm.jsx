@@ -65,7 +65,7 @@ class UserProfileForm extends Component {
                 <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '')} subtitle="You can modify here your public profile. Having a good profile help to find a Cluster." />
                 <CardText>
                     <DatePicker 
-                    value={user.birthdate} 
+                    value={user.birthdate}
                     floatingLabelText="Date of birth" 
                     openToYearSelection={true} 
                     onChange={(e, date) => { user.birthdate = date; this.setState({ user: user })}}
@@ -73,7 +73,7 @@ class UserProfileForm extends Component {
                     />
                 </CardText>
                 <CardActions>
-                    <FlatButton disabled={this.state.isLoading} label="Save" primary={true} onClick={this.save.bind(this)} />
+                    <FlatButton disabled={this.state.isLoading || !this.isDirty()} label="Save" primary={true} onClick={this.save.bind(this)} />
                     <FlatButton disabled={this.state.isLoading} label="Reset" secondary={true} onClick={this.reset.bind(this)} />
                 </CardActions>
             </Card>
