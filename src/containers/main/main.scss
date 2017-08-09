@@ -6,10 +6,11 @@ main {
     background: #fafafa;
 
     // container de la page affichee
-    &>div {
-        flex: 1;
+    &>div:last-child {
+        flex: 3;
         overflow-y: auto;
         order: 1;
+        min-width: 400px;
     }
 
     &>aside {

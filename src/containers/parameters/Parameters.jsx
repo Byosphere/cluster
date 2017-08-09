@@ -26,7 +26,7 @@ class Parameters extends React.Component {
     }
     onToggle(e, isInputChecked) {
         this.setState({ sidebarPos: isInputChecked });
-        this.props.setSidebarPosition(isInputChecked ? 'right' : 'left');
+        this.props.setSidebarPosition(isInputChecked ? 'left' : 'right');
     }
 
     render() {
@@ -36,7 +36,7 @@ class Parameters extends React.Component {
                     <Card className="card">
                         <CardTitle className="title" title="Options" subtitle="Set here your application preferences" />
                         <CardText>
-                            <Toggle label="Put sidebar on the right" onToggle={this.onToggle.bind(this)} />
+                            <Toggle label="Put sidebar on the left" onToggle={this.onToggle.bind(this)} />
                         </CardText>
                         <CardActions>
                             <FlatButton label="Save" primary={true} onClick={this.save.bind(this)} />

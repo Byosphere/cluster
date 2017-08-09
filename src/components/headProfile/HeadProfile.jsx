@@ -2,6 +2,8 @@ import React from 'react';
 import { Get } from 'react-axios';
 import { ScaleLoader } from 'halogen';
 import ProfileImage from '../profileImage/ProfileImage.jsx';
+import {Link} from 'react-router-dom';
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
 class HeadProfile extends React.Component {
 
@@ -36,8 +38,8 @@ class HeadProfile extends React.Component {
                                 } else {
                                     retour.push(
                                         <div key={i} className="profile">
-                                            <div className="inner">
-                                                <div className="img-wrapper"><img src="" alt="Unknown" /></div>
+                                            <div className="inner empty">
+                                                <Link to="/search"><ActionAccountCircle /></Link>
                                             </div>
                                         </div>
                                     );

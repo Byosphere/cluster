@@ -5,20 +5,32 @@ import HeadLogin from '../headlogin/HeadLogin.jsx';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/loginActions.jsx';
 import FlatButton from 'material-ui/FlatButton';
+import Menu from 'material-ui/svg-icons/navigation/menu';
+import Close from 'material-ui/svg-icons/navigation/close';
+import IconButton from 'material-ui/IconButton';
+import Drawer from 'material-ui/Drawer';
+import { white } from 'material-ui/styles/colors';
+import MenuItem from 'material-ui/MenuItem';
 
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state= {
-            hasCluster: false
+        this.state = {
+            hasCluster: false,
+            drawerOpen: false
         }
     }
 
     logout(e) {
         e.preventDefault();
         this.props.logout();
+        this.context.router.history.push('/home');
+    }
 
+    handleToggle(e) {
+        e.preventDefault();
+        this.setState({drawerOpen: !this.state.drawerOpen});
     }
 
     render() {
@@ -26,6 +38,13 @@ class Header extends React.Component {
 
         return (
             <header>
+                <Drawer open={this.state.drawerOpen} containerStyle={{top:'64px'}}>
+                    <MenuItem><NavLink to="/home" className="menuLink" activeClassName="active">Home</NavLink></MenuItem>
+                </Drawer>
+                <IconButton className="drawerButton" onTouchTap={this.handleToggle.bind(this)}>
+                    {!this.state.drawerOpen && <Menu color={white} />}
+                    {this.state.drawerOpen && <Close color={white} />}
+                </IconButton>
                 <h1><NavLink to="/home">CLUSTER 8</NavLink></h1>
                 <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
                 {isConnected && <div className="connected-menu">
@@ -47,8 +66,12 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        auth:state.auth
+        auth: state.auth
     }
 }
 
-export default connect(mapStateToProps, { logout }, undefined, { pure: false }) (Header);
+Header.contextTypes = {
+    router: React.PropTypes.object
+}
+
+export default connect(mapStateToProps, { logout }, undefined, { pure: false })(Header);

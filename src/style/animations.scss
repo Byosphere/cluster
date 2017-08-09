@@ -2,3 +2,21 @@
     from {background-color: red;}
     to {background-color: yellow;}
 }
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(30deg);
+    }
+
+    66% {
+        transform: rotate(-30deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

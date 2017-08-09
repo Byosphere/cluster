@@ -19,7 +19,7 @@ class Notification extends Component {
     this.notificationSystem.addNotification({
       message,
       level,
-      position:"tc"
+      position:"bc"
     });
   }
 

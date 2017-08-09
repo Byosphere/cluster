@@ -8,6 +8,9 @@ import Notification from './containers/notification/Notification.jsx';
 import configureStore from './store.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {setCurrentUser} from './actions/loginActions.jsx';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const store = configureStore();
 

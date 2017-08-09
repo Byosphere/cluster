@@ -21,3 +21,10 @@ export function getUserById(userid) {
         });
     }
 }
+
+//TODO : save user
+export function saveUser(user) {
+    return dispatch => {
+        return Promise.resolve(user);
+    }
+}

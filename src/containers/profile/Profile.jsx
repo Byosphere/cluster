@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Card, CardHeader, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import { getUserById } from '../../actions/userRequests.jsx';
+import UserProfileForm from '../../components/userprofileform/UserProfileForm.jsx';
 
 class Profile extends React.Component {
 
@@ -14,15 +15,21 @@ class Profile extends React.Component {
             user: {}
         }
 
+        this.isAuthUser.bind(this);
+
+    }
+
+    isAuthUser(props) {
+        if(!this.props.auth.isAuthenticated) return false;
+        return props.match.params.id == undefined || this.props.auth.user.id == props.match.params.id;
     }
 
     componentWillMount() {
 
-        if (this.props.match.params.id) {
+        if (!this.isAuthUser(this.props)) {
 
             this.props.getUserById(this.props.match.params.id).then((user) => {
                 this.setState({ paramsId: this.props.match.params.id, user: user });
-
             });
 
         } else {
@@ -32,8 +39,8 @@ class Profile extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        console.log('test');
-        if (newProps.match.params.id && newProps.match.params.id != this.state.paramsId) {
+
+        if (!this.isAuthUser(newProps)) {
             this.props.getUserById(this.props.match.params.id).then((user) => {
                 this.setState({ paramsId: this.props.match.params.id, user: user });
 
@@ -43,37 +50,44 @@ class Profile extends React.Component {
         }
     }
 
-    save(e) {
-        e.preventDefault();
+    renderAuthUserProfile(user) {
+        return (
+            <UserProfileForm user={user} />
+        );
     }
 
-    reset(e) {
-        e.preventDefault();
+    renderUserProfile(user) {
+        return (
+            <Card className="card">
+                <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '')} subtitle="" />
+                <CardText>
+                    <div>
+                        <img src={user.picture ? user.picture.large : ''} alt={(user.name ? user.name.first + " " + user.name.last : '') + "'s Profile"} />
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+            </Card>
+        );
     }
 
     render() {
 
         const user = this.state.user;
+        let content;
+
+        if (this.isAuthUser(this.props)) {
+            content = this.renderAuthUserProfile(user);
+        } else {
+            content = this.renderUserProfile(user);
+        }
 
         return (
             <div id="profile">
                 <div className="main-content">
-                    <Card className="card">
-                        <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '')} subtitle="You can modify here your public profile. Having a good profile help to find a Cluster." />
-                        <CardText>
-                            <div>
-                                <img src={user.picture ? user.picture.large : ''} alt={(user.name ? user.name.first + " " + user.name.last : '') + "'s Profile"} />
-                            </div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                        </CardText>
-                        <CardActions>
-                            <FlatButton label="Save" primary={true} onClick={this.save.bind(this)} />
-                            <FlatButton label="Reset" secondary={true} onClick={this.reset.bind(this)} />
-                        </CardActions>
-                    </Card>
+                    {content}
                 </div>
             </div>
         );
