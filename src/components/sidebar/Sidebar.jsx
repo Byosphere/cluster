@@ -28,9 +28,20 @@ class Sidebar extends React.Component {
 
     render() {
 
+        const cardStyle = { 
+            flex: 1, 
+            margin: "1rem", 
+            order: this.state.position == 'right' ? '2' : '1',
+            marginLeft: this.state.position == 'right' ? '0' : '1rem', 
+            marginRight: this.state.position == 'right' ? '1rem' : '0',
+            minWidth: "300px", 
+            zIndex: "auto", 
+            opacity:this.state.display
+        };
+
         if(this.props.auth.isAuthenticated) {
             return (
-                <Card id="sidebar" style={{ flex: 1, margin: "1rem", order: this.state.position == 'right' ? '2' : '1', minWidth: "300px", zIndex: "auto", opacity:this.state.display }}>
+                <Card id="sidebar" style={cardStyle}>
                     <CardTitle titleStyle={{ fontFamily: "'PT Sans Narrow',sans-serif" }} titleColor="#2f4154" title="Last messages" subtitle="from your Cluster" />
                     <div className="messages">
                         <Card className="message" style={INSIDE_CARD_STYLE}>

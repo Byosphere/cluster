@@ -43,7 +43,7 @@ hr {
 
 .main-content {
     width: 100%;
-    max-width: 960px;
+    max-width: $contentMaxWidth;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;

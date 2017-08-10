@@ -5,6 +5,7 @@ import axios from 'axios';
 import Flag from '../flag/Flag.jsx';
 import {Link} from 'react-router-dom';
 import ProfileImage from '../profileImage/ProfileImage.jsx';
+import Badge from 'material-ui/Badge'
 
 class Cluster extends React.Component {
 
@@ -15,7 +16,6 @@ class Cluster extends React.Component {
     render() {
         return (
             <div id="cluster">
-                <h2>Your Cluster</h2>
                 <div className="circle">
                      <Get url="https://randomuser.me/api/?results=8">
                         {(error, response, isLoading) => {
@@ -31,7 +31,9 @@ class Cluster extends React.Component {
                                                 <div className="inner">
                                                     <Flag nat={currentItem.nat} />
                                                     <ProfileImage user={currentItem} />
-                                                    <div className="name">{currentItem.name.first}</div>
+                                                    <Badge style={{position:'static', padding:0}} badgeContent={4} primary={true}>
+                                                        <div className="name">{currentItem.name.first}</div>
+                                                    </Badge>
                                                 </div>
                                             </div>
                                         );

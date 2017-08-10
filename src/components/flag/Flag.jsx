@@ -5,7 +5,11 @@ class Flag extends React.Component {
 
     constructor(props) {
         super(props);
-        this.flag = "../../../public/images/flags/"+this.props.nat.toLowerCase()+".svg";
+        this.state = {
+            width: this.props.width || '20',
+            height: this.props.height || '15'
+        }
+        this.flag = "../../../public/images/flags/" + this.props.nat.toLowerCase() + ".svg";
     }
 
     render() {
@@ -13,7 +17,7 @@ class Flag extends React.Component {
             <ReactSVG
                 path={this.flag}
                 className="flag"
-                style={{ width: 20, height: 15 }}
+                style={{ width: this.state.width+'px', height: this.state.height+'px' }}
             />
         );
     }

@@ -11,6 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
 import { white } from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
+import Badge from 'material-ui/Badge';
 
 class Header extends React.Component {
 
@@ -18,6 +19,7 @@ class Header extends React.Component {
         super(props);
         this.state = {
             hasCluster: true,
+            nbMember: 4,
             drawerOpen: false
         }
     }
@@ -30,7 +32,7 @@ class Header extends React.Component {
 
     handleToggle(e) {
         e.preventDefault();
-        this.setState({drawerOpen: !this.state.drawerOpen});
+        this.setState({ drawerOpen: !this.state.drawerOpen });
     }
 
     render() {
@@ -38,7 +40,7 @@ class Header extends React.Component {
 
         return (
             <header>
-                <Drawer open={this.state.drawerOpen} containerStyle={{top:'64px'}}>
+                <Drawer open={this.state.drawerOpen} containerStyle={{ top: '64px' }}>
                     <MenuItem><NavLink to="/home" className="menuLink" activeClassName="active">Home</NavLink></MenuItem>
                 </Drawer>
                 <IconButton className="drawerButton" onTouchTap={this.handleToggle.bind(this)}>
@@ -48,7 +50,9 @@ class Header extends React.Component {
                 <h1><NavLink to="/home">CLUSTER 8</NavLink></h1>
                 <NavLink to="/home" className="navlink" activeClassName="active">HOME</NavLink>
                 {isConnected && <div className="connected-menu">
-                    <NavLink to="/cluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
+                    <Badge badgeStyle={{display:this.state.nbMember ? 'flex' : 'none', top:'3px'}} style={{padding:0}} badgeContent={this.state.nbMember} primary={true}>
+                        <NavLink to="/cluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
+                    </Badge>
                     <NavLink exact to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
                     <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
                     <HeadProfile user={this.props.auth.user} hasCluster={this.state.hasCluster} />

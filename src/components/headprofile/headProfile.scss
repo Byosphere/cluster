@@ -57,9 +57,10 @@
             width: 100%;
         }
 
-        &:hover {
-            border-color: $highlight;
-        }
+        &.online {border: 2px solid #8BC34A;}
+        &.inactive {border: 2px solid #FF9800;}
+
+        &:hover {border-color: $highlight;}
 
         .inner.empty {
             background-color: #f7f7f7;
@@ -83,7 +84,5 @@
             }
         }
 
-        &.online {border: 2px solid #8BC34A;}
-        &.inactive {border: 2px solid #FF9800;}
     }
 }

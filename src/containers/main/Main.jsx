@@ -22,6 +22,7 @@ class Main extends React.Component {
                         <Route path='/home' component={Home} />
                         <Route path='/profile/:id' component={Profile} />
                         <Route path='/profile' component={Profile} />
+                        <Route path='/cluster/:tab' component={Cluster} />
                         <Route path='/cluster' component={Cluster} />
                         <Route path='/404' component={NotFound} />
                         <Route path='/parameters' component={requireAuth(Parameters)} />
