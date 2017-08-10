@@ -1,8 +1,11 @@
 @import "../../style/variables.scss";
 @import "../../style/animations.scss";
 
+#headProfile {transition: opacity .5s; z-index: 19}
+
 #headProfile>div {
     position: absolute;
+
     top: 2px;
     right: 100px;
     display: grid;

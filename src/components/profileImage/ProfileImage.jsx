@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ActionTypes from '../../Constants';
 // import { addNotification } from '../../actions/notificationAction.jsx';
 
@@ -12,10 +12,10 @@ class ProfileImage extends React.Component {
 
     render() {
         let link = '';
-        if(this.props.isUser) {
+        if (this.props.isUser) {
             link = "/profile";
         } else {
-            link = "/profile/"+this.props.user.name.first+this.props.user.name.last;
+            link = "/profile/" + this.props.user.name.first + this.props.user.name.last;
         }
 
         return (
@@ -26,4 +26,4 @@ class ProfileImage extends React.Component {
     }
 }
 
-export default connect() (ProfileImage);
+export default connect()(ProfileImage);

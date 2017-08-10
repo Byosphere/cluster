@@ -73,12 +73,14 @@ class HeadLogin extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleOpen() {
+    handleOpen(e) {
+        if(e) e.preventDefault();
         this.resetModal();
         this.setState({ modalOpen: true });
     }
 
-    handleClose() {
+    handleClose(e) {
+        if(e) e.preventDefault();
         this.resetModal();
         this.setState({ modalOpen: false });
     }

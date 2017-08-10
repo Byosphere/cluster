@@ -10,14 +10,18 @@ export function setCurrentUser(user) {
 
 export function login (data){
     return dispatch => {
-        return axios.post('/api/auth', data).then(res => {
-            const token = res.data.token;
-            localStorage.setItem('jwtToken', token);
-            dispatch(setCurrentUser());
+        localStorage.setItem('jwtToken', 'token');
+        var user = {id:1, name: {first:"Machin", last:'Trus'}};
+        dispatch(setCurrentUser(user));
+        return Promise.resolve(user);
+        // return axios.post('/api/auth', data).then(res => {
+        //     const token = res.data.token;
+        //     localStorage.setItem('jwtToken', token);
+        //     dispatch(setCurrentUser());
 
-        }).catch(function(error) {
-            return Promise.reject(error.message);
-        });
+        // }).catch(function(error) {
+        //     return Promise.reject(error.message);
+        // });
     }
 
 }

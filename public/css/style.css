@@ -152,7 +152,6 @@ hr {
 }
 
 
-
 @-webkit-keyframes cluster-pulse {
   from {
     background-color: red;
@@ -408,7 +407,9 @@ hr {
 }
 
 
+
 header {
+  z-index: 20;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -546,6 +547,12 @@ header .drawerButton {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
+}
+
+#headProfile {
+  z-index: 19;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
 }
 
 #headProfile > div {
@@ -727,18 +734,50 @@ header .drawerButton {
 
 
 
+footer {
+  font-size: .8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: #2f4154;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  margin: 0;
+  opacity: .7;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: white;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
 
 main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: calc(100% - 64px);
+  min-height: calc(100% - 64px - 30px);
   background: #fafafa;
 }
 
 main > div.wrapper {
   overflow-y: auto;
   min-width: 400px;
+  padding-bottom: 1rem;
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;

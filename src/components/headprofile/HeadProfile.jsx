@@ -7,9 +7,23 @@ import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
 class HeadProfile extends React.Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            display: '0'
+        }
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({display: '1'});
+        }, 500);
+    }
+
     render() {
         return (
-            <div id="headProfile">
+            <div id="headProfile" style={{opacity: this.state.display}}>
                 
                 <Get url="https://randomuser.me/api/?results=7">
                     {(error, response, isLoading) => {

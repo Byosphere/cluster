@@ -1,7 +1,7 @@
 import { SET_SIDEBAR_POSITION } from '../Constants';
 
 const initialState = {
-    position: 'left'
+    position: 'right'
 };
 
 export default (state = initialState, action) => {

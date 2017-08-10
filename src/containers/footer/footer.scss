@@ -1,0 +1,25 @@
+@import "../../style/variables.scss";
+
+footer {
+    height: $footerHeight;
+    width: 100%;
+    background-color:$footerBackground;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+
+    p {
+        margin: 0;
+        color: white;
+        opacity: 0.7;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -17,7 +17,6 @@ class Home extends React.Component {
           <hr/>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus sit provident, ex aspernatur obcaecati, asperiores fugit commodi voluptates maxime saepe necessitatibus magni repudiandae blanditiis error corporis earum consequatur incidunt illum.</p>
         </div>
-        <Footer />
       </div>
     );
   }

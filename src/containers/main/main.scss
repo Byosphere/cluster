@@ -1,7 +1,7 @@
 @import "../../style/variables.scss";
 
 main {
-    height: calc(100% - #{$headerHeight});
+    min-height: calc(100% - #{$headerHeight} - #{$footerHeight});
     display: flex;
     background: #fafafa;
 
@@ -11,6 +11,7 @@ main {
         overflow-y: auto;
         order: 1;
         min-width: 400px;
+        padding-bottom: 1rem;
     }
 
     &>aside {
