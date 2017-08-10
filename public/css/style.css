@@ -153,6 +153,68 @@ hr {
 
 
 
+
+footer {
+  font-size: .8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: #2f4154;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  margin: 0;
+  opacity: .7;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: white;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: calc(100% - 30px);
+  padding-top: 64px;
+  background: #fafafa;
+}
+
+main > div.wrapper {
+  overflow-y: auto;
+  min-width: 400px;
+  padding-bottom: 1rem;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+main > aside {
+  padding-top: 30px;
+}
+
+
+
+
+
 @-webkit-keyframes cluster-pulse {
   from {
     background-color: red;
@@ -405,8 +467,11 @@ hr {
 }
 
 
+
 header {
+  position: fixed;
   z-index: 20;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -728,64 +793,3 @@ header .drawerButton {
 .signupform {
   margin-left: 1rem;
 }
-
-
-
-footer {
-  font-size: .8rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 30px;
-  background-color: #2f4154;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-footer p {
-  margin: 0;
-  opacity: .7;
-  color: white;
-}
-
-footer p a {
-  text-decoration: none;
-  color: white;
-}
-
-footer p a:hover {
-  text-decoration: underline;
-}
-
-
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: calc(100% - 64px - 30px);
-  background: #fafafa;
-}
-
-main > div.wrapper {
-  overflow-y: auto;
-  min-width: 400px;
-  padding-bottom: 1rem;
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-main > aside {
-  padding-top: 30px;
-}
-
-
-

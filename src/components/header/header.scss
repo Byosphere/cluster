@@ -9,6 +9,8 @@ header {
     align-items: center;
     min-width: 600px;
     z-index: 20;
+    position: fixed;
+    top:0;
 
     h1 {
         margin: 0 1rem;

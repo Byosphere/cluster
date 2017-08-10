@@ -10,7 +10,8 @@ class Cluster extends Component {
         super(props);
 
         this.state = {
-            selectedTab: 'overview'
+            selectedTab: 'overview',
+            cluster: {}
         }
     }
 
