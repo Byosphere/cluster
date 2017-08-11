@@ -53,7 +53,7 @@ class FloatMessage extends Component {
         if (this.props.auth.isAuthenticated) {
             return (
                 <div>
-                    <FloatingActionButton onTouchTap={this.handleOpen.bind(this)} style={{ position: 'fixed', minWidth: 'auto', bottom: 'calc(5% + 30px)', right: '5%' }}>
+                    <FloatingActionButton onTouchTap={this.handleOpen.bind(this)} style={{ position: 'fixed', minWidth: 'auto', bottom: 'calc(5% + 30px)', right: '5%', zIndex:"200" }}>
                         <MailOutline />
                     </FloatingActionButton>
                     <Dialog

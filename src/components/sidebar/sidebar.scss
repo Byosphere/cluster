@@ -18,3 +18,9 @@ $sidebarMargin: 1rem;
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 }
+
+@media (max-width: 1100px) {
+    #sidebar {
+        display: none;
+    }
+}

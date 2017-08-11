@@ -53,7 +53,7 @@ class Header extends React.Component {
                     <Badge badgeStyle={{display:this.state.nbMember ? 'flex' : 'none', top:'3px'}} style={{padding:0}} badgeContent={this.state.nbMember} primary={true}>
                         <NavLink to="/cluster" className={!this.state.hasCluster ? 'navlink disabled' : 'navlink'} activeClassName="active">CLUSTER</NavLink>
                     </Badge>
-                    <NavLink exact to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
+                    <NavLink to="/profile" className="navlink" activeClassName="active">PROFILE</NavLink>
                     <NavLink to="/parameters" className="navlink" activeClassName="active">Options</NavLink>
                     <HeadProfile user={this.props.auth.user} hasCluster={this.state.hasCluster} />
                     <FlatButton style={{ position: 'absolute', right: '.5rem', top: '14px' }} label="Logout" secondary={true} onClick={this.logout.bind(this)} />

@@ -112,6 +112,7 @@ hr {
 .main-content {
   width: 100%;
   max-width: 1100px;
+  min-height: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
@@ -150,68 +151,6 @@ hr {
     display: none;
   }
 }
-
-
-
-
-footer {
-  font-size: .8rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 30px;
-  background-color: #2f4154;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-footer p {
-  margin: 0;
-  opacity: .7;
-  color: white;
-}
-
-footer p a {
-  text-decoration: none;
-  color: white;
-}
-
-footer p a:hover {
-  text-decoration: underline;
-}
-
-
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: calc(100% - 30px);
-  padding-top: 64px;
-  background: #fafafa;
-}
-
-main > div.wrapper {
-  overflow-y: auto;
-  min-width: 400px;
-  padding-bottom: 1rem;
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-main > aside {
-  padding-top: 30px;
-}
-
-
 
 
 
@@ -790,6 +729,123 @@ header .drawerButton {
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
+@media (max-width: 1100px) {
+  #sidebar {
+    display: none;
+  }
+}
+
 .signupform {
   margin-left: 1rem;
 }
+
+
+#cluster-page {
+  height: calc(100% - 1rem);
+}
+
+#cluster-page .main-content {
+  height: 100%;
+}
+
+#cluster-page .main-content .card {
+  height: 100%;
+}
+
+#cluster-page .chips {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#cluster-page .chips > div {
+  margin-right: 1rem !important;
+}
+
+#cluster-requests.centered-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer {
+  font-size: .8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: #2f4154;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  margin: 0;
+  opacity: .7;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: white;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: calc(100% - 30px);
+  padding-top: 64px;
+  background: #fafafa;
+}
+
+main > div.wrapper {
+  min-width: 400px;
+  padding-bottom: 1rem;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+main > aside {
+  padding-top: 30px;
+}
+
+
+@charset 'UTF-8';
+
+#profile {
+  height: calc(100% - 1rem);
+}
+
+#profile  .main-content {
+  height: 100%;
+}
+
+#profile  .main-content .card {
+  height: 100%;
+}
+

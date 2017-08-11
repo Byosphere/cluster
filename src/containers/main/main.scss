@@ -9,7 +9,7 @@ main {
     // container de la page affichee
     &>div.wrapper {
         flex: 3;
-        overflow-y: auto;
+        //overflow-y: auto;
         order: 1;
         min-width: 400px;
         padding-bottom: 1rem;

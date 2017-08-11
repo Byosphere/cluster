@@ -1,0 +1,13 @@
+@import "../../style/variables.scss";
+
+#profile {
+     height: calc(100% - 1rem);
+
+    .main-content {
+        height: 100%;
+
+        .card {
+            height: 100%;
+        }
+    }
+}

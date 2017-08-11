@@ -60,8 +60,7 @@ class UserProfileForm extends Component {
     render() {
         const user = this.state.user;
         return (
-
-            <Card className="card" id="user-profile-form">
+            <div id="user-profile-form">
                 <CardTitle className="title" title={(user.name ? user.name.first + " " + user.name.last : '')} subtitle="You can modify here your public profile. Having a good profile help to find a Cluster." />
                 <CardText>
                     <DatePicker 
@@ -76,7 +75,7 @@ class UserProfileForm extends Component {
                     <FlatButton disabled={this.state.isLoading || !this.isDirty()} label="Save" primary={true} onClick={this.save.bind(this)} />
                     <FlatButton disabled={this.state.isLoading} label="Reset" secondary={true} onClick={this.reset.bind(this)} />
                 </CardActions>
-            </Card>
+            </div>
         );
     }
 }
