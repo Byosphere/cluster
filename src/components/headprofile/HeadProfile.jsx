@@ -1,14 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Get } from 'react-axios';
 import { ScaleLoader } from 'halogen';
 import ProfileImage from '../profileImage/ProfileImage.jsx';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
 class HeadProfile extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             display: '0'
@@ -17,14 +18,15 @@ class HeadProfile extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            this.setState({display: '1'});
+            this.setState({ display: '1' });
         }, 500);
     }
 
     render() {
+
         return (
-            <div id="headProfile" style={{opacity: this.state.display}}>
-                
+            <div id="headProfile" style={{ opacity: this.state.display }}>
+
                 <Get url="https://randomuser.me/api/?results=7">
                     {(error, response, isLoading) => {
                         if (isLoading) {

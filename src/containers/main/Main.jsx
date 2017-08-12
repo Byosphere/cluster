@@ -20,7 +20,7 @@ class Main extends React.Component {
                 <Sidebar></Sidebar>
                 <div className="wrapper">
                     <Switch>
-                        <Route path='/home' component={Home} />
+                        {/* <Route path='/home' component={Home} /> */}
                         <Route path='/profile/:tab' component={requireAuth(Profile)} />
                         <Route path='/profile' component={requireAuth(Profile)} />
                         <Route path='/cluster/:tab' component={requireAuth(Cluster)} />

@@ -22,7 +22,7 @@ class HeadLogin extends React.Component {
             errors: {},
             isLoading: false,
             modalOpen: false,
-            cookie: false
+            storage: true
         }
 
         this.onChange = this.onChange.bind(this);
@@ -51,6 +51,14 @@ class HeadLogin extends React.Component {
                     this.handleClose();
                 },
                 (err) => {
+                    console.log(err);
+                    this.setState({ errors: { form: err }, isLoading: false });
+                    if(this.state.errors.form) {
+                        this.props.addNotification(this.state.errors.form,"error");
+                    }
+                }
+            ).catch(
+                (err) => {
                     this.setState({ errors: { form: err }, isLoading: false });
                     if(this.state.errors.form) {
                         this.props.addNotification(this.state.errors.form,"error");
@@ -65,7 +73,7 @@ class HeadLogin extends React.Component {
             email: '',
             password: '',
             errors: {},
-            cookie: false
+            storage: true
         });
     }
 
@@ -86,7 +94,7 @@ class HeadLogin extends React.Component {
     }
 
     onToggle(e, isInputChecked) {
-        this.setState({cookie: isInputChecked});
+        this.setState({storage: isInputChecked});
     }
 
     render() {
@@ -132,8 +140,8 @@ class HeadLogin extends React.Component {
                         type="password"
                         errorText={this.state.errors.password}
                     />
-                    <Toggle onToggle={this.onToggle} label="Stay connected" style={{marginTop:'1rem'}} labelPosition="right" />
-                    {/* {this.state.errors.form && <Subheader className="error" style={{ color: 'rgb(244, 67, 54)', textAlign: 'right' }}><ErrorIcon style={{color: 'rgb(244, 67, 54)'}} />{this.state.errors.form}</Subheader>} */}
+                    <Toggle onToggle={this.onToggle} label="Stay connected" style={{marginTop:'1rem'}} defaultToggled={this.state.storage} labelPosition="right" />
+                    {this.state.errors.form && <Subheader className="error" style={{ color: 'rgb(244, 67, 54)', textAlign: 'right' }}><ErrorIcon style={{color: 'rgb(244, 67, 54)'}} />{this.state.errors.form}</Subheader>} 
                 </Dialog>
             </div>
         );

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_URL } from "../Constants";
 
 export function userSignupRequest(userData) {
     return dispatch => {
@@ -7,17 +8,19 @@ export function userSignupRequest(userData) {
 }
 
 export function getUserById(userid) {
+
     return dispatch => {
-        return axios.get('https://randomuser.me/api/', {params:{id:userid}}).then(
+        return axios.get(API_URL+'user/'+userid).then(
             (res) => {
-                let user = res.data.results[0];
-                if(user)
-                    return user;
-                else 
-                    throw 'User not found';
+                let user = res.data.user;
+                if(user) {
+                    return Promise.resolve(user);
+                } else {
+                    return Promise.reject(new Error (res.data.message));
+                }
             }
         ).catch(function(err) {
-            return Promise.reject(error.message);
+            return Promise.reject(new Error (err.message));
         });
     }
 }

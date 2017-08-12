@@ -1,8 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ActionTypes from '../../Constants';
-// import { addNotification } from '../../actions/notificationAction.jsx';
 
 class ProfileImage extends React.Component {
 
@@ -20,10 +17,11 @@ class ProfileImage extends React.Component {
 
         return (
             <Link to={link} className="img-wrapper profile-image">
-                <img src={this.props.user.picture ? this.props.user.picture.large : '../../../../public/images/images/main.jpg'} alt="" />
+                <img src='../../../../public/images/images/main.jpg' alt="" />
+                {/* <img src={this.props.user.profilepicture ? this.props.user.profilepicture : '../../../../public/images/images/main.jpg'} alt="" /> */}
             </Link>
         );
     }
 }
 
-export default connect()(ProfileImage);
+export default ProfileImage;

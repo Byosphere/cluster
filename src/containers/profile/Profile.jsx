@@ -5,19 +5,35 @@ import FlatButton from 'material-ui/FlatButton';
 import UserProfileForm from '../../components/userprofileform/UserProfileForm.jsx';
 import { Redirect } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import { getUserById } from '../../actions/userRequests.jsx';
+import { RingLoader } from 'halogen';
 
 class Profile extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            user: props.auth.user,
+            user: undefined,
             selectedTab: props.match.params.tab || 'user'
         }
     }
 
+    componentWillMount() {
+        console.log(this.state.user);
+        if (this.props.auth.isAuthenticated && !this.state.user) {
+            this.props.getUserById(this.props.auth.user.sub).then(
+                (res) => {
+                    this.setState({ user: res });
+                },
+                (err) => {
+                    console.log("error");
+                }
+            );
+        }
+    }
+
     handleChange(value) {
-        this.props.history.push('/profile/'+value);
+        //this.props.history.push('/profile/' + value);
         this.setState({
             selectedTab: value
         });
@@ -31,8 +47,8 @@ class Profile extends React.Component {
             <div id="profile">
                 <div className="main-content">
                     <Card className="card">
-                        <Tabs value={this.state.selectedTab} onChange={this.handleChange.bind(this)}>
-                            <Tab label={user.name.first + " " + user.name.last} value="user">
+                        {user && <Tabs value={this.state.selectedTab} onChange={this.handleChange.bind(this)}>
+                            <Tab label={user.firstname + " " + user.lastname} value="user">
                                 <UserProfileForm user={user} />
                             </Tab>
                             <Tab label="Search" value="search">
@@ -41,7 +57,8 @@ class Profile extends React.Component {
                             <Tab label="Parameters" value="params">
                                 sqdqsd
                             </Tab>
-                        </Tabs>
+                        </Tabs>}
+                        {!user && <RingLoader color="#18ffff" size="100px" className="loader" />}
                     </Card>
                 </div>
             </div>
@@ -55,4 +72,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, { getUserById })(Profile);
