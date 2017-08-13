@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import { DotLoader } from 'halogen';
-import validateInput from '../../validators/login';
+import validator from 'validator';
 import { login } from '../../actions/loginActions.jsx';
 import { addNotification } from '../../actions/notificationAction.jsx';
 import Dialog from 'material-ui/Dialog';
@@ -11,6 +11,7 @@ import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
 import ErrorIcon from 'material-ui/svg-icons/alert/error';
+import { isEmpty } from 'lodash';
 
 class HeadLogin extends React.Component {
 
@@ -31,38 +32,33 @@ class HeadLogin extends React.Component {
         this.handleOpen = this.handleOpen.bind(this);
         this.resetModal = this.resetModal.bind(this);
         this.onToggle = this.onToggle.bind(this);
+        this.isValid = this.isValid.bind(this);
     }
 
     isValid() {
-        const { errors, isValid } = validateInput(this.state);
-        if (!isValid) {
-            this.setState({ errors });
-        }
-        return isValid;
+        var errors = {};
+        if (!this.state.email) errors.email = "This field is required";
+        if (!this.state.password) errors.password = "This field is required";
+        if (this.state.email && !validator.isEmail(this.state.email)) errors.email = "This is not an e-mail address";
+        if (this.state.password && !validator.isAscii(this.state.password)) errors.password = "Incorrect inputs";
+        this.setState({ errors: errors });
+        return isEmpty(errors);
     }
 
     onSubmit(e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         if (this.isValid()) {
             this.setState({ isLoading: true, errors: {} });
             this.props.login(this.state).then(
                 (res) => {
-                    this.setState({ isLoading: false });
-                    this.handleClose();
+                    this.handleClose(null, true);
                 },
                 (err) => {
-                    console.log(err);
-                    this.setState({ errors: { form: err }, isLoading: false });
-                    if(this.state.errors.form) {
-                        this.props.addNotification(this.state.errors.form,"error");
-                    }
+                    this.setState({ errors: { form: err.message }, isLoading: false });
                 }
             ).catch(
                 (err) => {
-                    this.setState({ errors: { form: err }, isLoading: false });
-                    if(this.state.errors.form) {
-                        this.props.addNotification(this.state.errors.form,"error");
-                    }
+                    this.setState({ errors: { form: err.message }, isLoading: false });
                 }
             );
         }
@@ -82,19 +78,21 @@ class HeadLogin extends React.Component {
     }
 
     handleOpen(e) {
-        if(e) e.preventDefault();
+        if (e) e.preventDefault();
         this.resetModal();
         this.setState({ modalOpen: true });
     }
 
-    handleClose(e) {
-        if(e) e.preventDefault();
-        this.resetModal();
-        this.setState({ modalOpen: false });
+    handleClose(e, success) {
+        if (e) e.preventDefault();
+        if (!success) {
+            this.resetModal();
+            this.setState({ modalOpen: false });
+        }
     }
 
     onToggle(e, isInputChecked) {
-        this.setState({storage: isInputChecked});
+        this.setState({ storage: isInputChecked });
     }
 
     render() {
@@ -123,6 +121,7 @@ class HeadLogin extends React.Component {
                     modal={false}
                     open={this.state.modalOpen}
                     onRequestClose={this.handleClose}>
+                    {this.state.errors.form && <Subheader className="error" style={{ margin: 0 }}><ErrorIcon style={{ color: 'rgb(244, 67, 54)' }} />{this.state.errors.form}</Subheader>}
                     <TextField
                         floatingLabelText="E-mail"
                         name="email"
@@ -130,6 +129,7 @@ class HeadLogin extends React.Component {
                         onChange={this.onChange}
                         type="text"
                         errorText={this.state.errors.email}
+                        onKeyPress={(e) => { if (e.key == 'Enter') this.onSubmit() }}
                     />
                     <br />
                     <TextField
@@ -139,9 +139,9 @@ class HeadLogin extends React.Component {
                         onChange={this.onChange}
                         type="password"
                         errorText={this.state.errors.password}
+                        onKeyPress={(e) => { if (e.key == 'Enter') this.onSubmit() }}
                     />
-                    <Toggle onToggle={this.onToggle} label="Stay connected" style={{marginTop:'1rem'}} defaultToggled={this.state.storage} labelPosition="right" />
-                    {this.state.errors.form && <Subheader className="error" style={{ color: 'rgb(244, 67, 54)', textAlign: 'right' }}><ErrorIcon style={{color: 'rgb(244, 67, 54)'}} />{this.state.errors.form}</Subheader>} 
+                    <Toggle onToggle={this.onToggle} label="Stay connected" style={{ marginTop: '1rem' }} defaultToggled={this.state.storage} labelPosition="right" />
                 </Dialog>
             </div>
         );

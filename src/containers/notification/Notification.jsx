@@ -18,7 +18,7 @@ class Notification extends Component {
     const { message, level, position } = newProps.notification;
     this.notificationSystem.addNotification({
       message,
-      level,
+      level: level || "warning",
       position:"bc"
     });
   }

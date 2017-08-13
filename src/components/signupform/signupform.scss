@@ -1,3 +1,16 @@
-.signupform {
+#signupform {
     margin-left: 1rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: flex-end;
+
+    div {
+        margin-right:1rem;
+    }
+
+    .flag {
+        margin-bottom: 5px;
+    }
 }

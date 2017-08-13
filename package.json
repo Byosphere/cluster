@@ -29,7 +29,8 @@
     "react-svg": "^2.1.21",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "validator": "^8.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

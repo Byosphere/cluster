@@ -4,7 +4,6 @@ import { clone, isEqual } from 'lodash';
 import { Card, CardHeader, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import DatePicker from 'material-ui/DatePicker';
-import validateUser from '../../validators/user';
 import { addNotification } from '../../actions/notificationAction.jsx';
 import { saveUser } from '../../actions/userRequests.jsx';
 
@@ -22,11 +21,11 @@ class UserProfileForm extends Component {
     }
 
     isValid() {
-        const { errors, isValid } = validateUser(this.state.user);
-        if (!isValid) {
-            this.setState({ errors });
-        }
-        return isValid;
+        // const { errors, isValid } = validateUser(this.state.user);
+        // if (!isValid) {
+        //     this.setState({ errors });
+        // }
+        // return isValid;
     }
 
     isDirty() {
