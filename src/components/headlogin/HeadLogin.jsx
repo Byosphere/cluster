@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import { DotLoader } from 'halogen';
 import validator from 'validator';
-import { login } from '../../actions/loginActions.jsx';
+import { login } from '../../actions/authActions';
 import { addNotification } from '../../actions/notificationAction.jsx';
 import Dialog from 'material-ui/Dialog';
 import Subheader from 'material-ui/Subheader';
@@ -50,9 +50,7 @@ class HeadLogin extends React.Component {
         if (this.isValid()) {
             this.setState({ isLoading: true, errors: {} });
             this.props.login(this.state).then(
-                (res) => {
-                    this.handleClose(null, true);
-                },
+                (res) => {},
                 (err) => {
                     this.setState({ errors: { form: err.message }, isLoading: false });
                 }
@@ -110,7 +108,9 @@ class HeadLogin extends React.Component {
                 disabled={this.state.isLoading}
             />
         ];
+
         return (
+            
             <div>
                 <FlatButton label="Login" style={{ position: 'absolute', right: '1rem', top: '14px' }} primary={true} onClick={this.handleOpen} />
                 <Dialog

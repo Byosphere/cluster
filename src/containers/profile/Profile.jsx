@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import UserProfileForm from '../../components/userprofileform/UserProfileForm.jsx';
 import { Redirect } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import { getUserById } from '../../actions/userRequests.jsx';
 import { RingLoader } from 'halogen';
 
 class Profile extends React.Component {
@@ -13,27 +12,12 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: undefined,
             selectedTab: props.match.params.tab || 'user'
         }
     }
 
-    componentWillMount() {
-        console.log(this.state.user);
-        if (this.props.auth.isAuthenticated && !this.state.user) {
-            this.props.getUserById(this.props.auth.user.sub).then(
-                (res) => {
-                    this.setState({ user: res });
-                },
-                (err) => {
-                    console.log("error");
-                }
-            );
-        }
-    }
-
     handleChange(value) {
-        //this.props.history.push('/profile/' + value);
+        this.props.history.push('/profile/' + value);
         this.setState({
             selectedTab: value
         });
@@ -41,14 +25,14 @@ class Profile extends React.Component {
 
     render() {
 
-        const user = this.state.user;
+        const user = this.props.auth.user;
 
         return (
             <div id="profile">
                 <div className="main-content">
                     <Card className="card">
                         {user && <Tabs value={this.state.selectedTab} onChange={this.handleChange.bind(this)}>
-                            <Tab label={user.firstname + " " + user.lastname} value="user">
+                            <Tab label={user.username} value="user">
                                 <UserProfileForm user={user} />
                             </Tab>
                             <Tab label="Search" value="search">
@@ -72,4 +56,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { getUserById })(Profile);
+export default connect(mapStateToProps)(Profile);

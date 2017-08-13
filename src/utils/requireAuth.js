@@ -17,7 +17,7 @@ export default function (ComposedComponent) {
             if(this.props.isAuthenticated) {
                 return (<ComposedComponent {...this.props} />);
             } else {
-                return (<Redirect to="/home" />);
+                return (<Redirect to="/404" />);
             }
         }
     }

@@ -8,7 +8,7 @@ class Flag extends React.Component {
 
         this.state = {
             width: this.props.width || '20',
-            height: this.props.height || '15',
+            height: this.props.height || '20',
             flagUrl: ''
         }
 

@@ -13,6 +13,12 @@ export const INSIDE_CARD_STYLE = {
     borderTop: '1px solid rgba(0,0,0,0.1)'
 };
 
+export const STATUS_LIST = [
+    { name: 'online', color: '#76FF03' },
+    { name: 'inactif', color: '#FF9800' },
+    { name: 'offline', color: '#000000' }
+];
+
 export const COUNTRY_CODES = [
     {
         "name": "Afghanistan",

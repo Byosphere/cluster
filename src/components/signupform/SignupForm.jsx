@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userSignupRequest } from '../../actions/userRequests.jsx';
+import { signup } from '../../actions/authActions';
 import { browserHistory } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
@@ -17,6 +17,8 @@ import DatePicker from 'material-ui/DatePicker';
 import { RingLoader } from 'halogen';
 import Subheader from 'material-ui/Subheader';
 import ErrorIcon from 'material-ui/svg-icons/alert/error';
+import FileInput from '../../components/fileinput/FileInput.jsx';
+import { Redirect } from 'react-router-dom';
 
 class SignupForm extends React.Component {
 
@@ -32,6 +34,7 @@ class SignupForm extends React.Component {
             gender: '',
             firstname: '',
             lastname: '',
+            introduction: '',
             profilepicture: '',
             birthdate: undefined,
             password: '',
@@ -41,7 +44,8 @@ class SignupForm extends React.Component {
             errors: {},
             isLoading: false,
             stepIndex: 0,
-            maxDate: maxDate
+            maxDate: maxDate,
+            redirect: false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -52,8 +56,15 @@ class SignupForm extends React.Component {
         this.handlePrev = this.handlePrev.bind(this);
     }
 
+    componentWillReceiveProps(newProps) {
+        if(newProps.user) {
+            this.setState({user:newProps.user});
+        }
+    }
+
     verifyFields(step) {
         var errors = {};
+
         switch (step) {
             case 0:
                 if(!this.state.username) errors.username = "This field is required";
@@ -110,9 +121,9 @@ class SignupForm extends React.Component {
     onSubmit(e) {
         if(e) e.preventDefault();
         this.setState({ errors: {}, isLoading: true });
-        this.props.userSignupRequest(this.state).then(
+        this.props.signup(this.state).then(
             (res) => {
-
+                this.setState({redirect: true});
             },
             (err) => {
                 this.setState({ errors: { form: err.message }, isLoading: false });
@@ -153,6 +164,8 @@ class SignupForm extends React.Component {
     render() {
 
         const { stepIndex } = this.state;
+        
+        if(this.state.redirect) return (<Redirect to="/" />);
 
         return (
             <form id="signupform" onSubmit={this.onSubmit}>
@@ -273,14 +286,28 @@ class SignupForm extends React.Component {
                         </StepContent>
                     </Step>
                     <Step>
-                        <StepLabel>Choose your prefered settings</StepLabel>
+                        <StepLabel>Build a nice profile</StepLabel>
                         <StepContent>
                             <p>
                                 For each ad campaign that you create, you can control how much
                                 you're willing to spend on clicks and conversions, which networks
                                 and geographical locations you want your ads to show on, and more.
                             </p>
-
+                            <FileInput name="profilepicture" onChange={this.onChange} hintText="Profile picture" />
+                            <div>
+                                <TextField
+                                        type="text"
+                                        name="introduction"
+                                        floatingLabelText="Short introduction"
+                                        value={this.state.introduction}
+                                        errorText={this.state.errors.introduction}
+                                        onChange={this.onChange}
+                                        multiLine={true}
+                                        rows={4}
+                                        rowsMax={10}
+                                        fullWidth={true}
+                                    />
+                            </div>
                             {this.renderStepActions(2)}
                         </StepContent>
                     </Step>
@@ -291,4 +318,4 @@ class SignupForm extends React.Component {
     }
 }
 
-export default connect(null, { userSignupRequest })(SignupForm);
+export default connect(null, { signup })(SignupForm);

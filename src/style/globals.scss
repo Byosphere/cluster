@@ -15,6 +15,10 @@ h1.logo {
 
     position: relative;
     margin: 0 1rem;
+    font-family: $mainFont;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: $titleColor;
 
     a, a:focus, a:active, a:visited {
         text-decoration: none;
@@ -48,8 +52,8 @@ h1.logo {
             content: '\2742';
             position: absolute;
             color: $titleSubColor;
-            font-size: 1.6rem;
-            top: -1px;
+            font-size: 1.5rem;
+            top: 0;
             left: 0;
             transition: transform 0.5s;
             animation-name: title8-top;
@@ -61,8 +65,8 @@ h1.logo {
             content: '\2742';
             position: absolute;
             color: $titleColor;
-            font-size: 1.6rem;
-            bottom: -2px;
+            font-size: 1.5rem;
+            bottom: 0;
             left: 0;
             transition: transform 0.5s;
             animation-name: title8-bot;
