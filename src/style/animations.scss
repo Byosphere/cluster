@@ -20,3 +20,30 @@
         transform: rotate(0deg);
     }
 }
+
+@keyframes title8-top {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, 1.1rem);
+    }
+
+    100% {
+        transform: translate(0, 0); 
+    }
+}
+
+@keyframes title8-bot {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, -1.1rem);
+    }
+    100% {
+        transform: translate(0, 0); 
+    }
+}

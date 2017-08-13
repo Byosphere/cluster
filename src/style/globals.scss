@@ -1,4 +1,5 @@
 @import 'variables.scss';
+@import 'animations.scss';
 
 * {
     box-sizing: border-box;
@@ -8,6 +9,67 @@
 html, body, #app, #clusterApp {
     height: 100%;
     background: $white;
+}
+
+h1.logo {
+
+    position: relative;
+    margin: 0 1rem;
+
+    a, a:focus, a:active, a:visited {
+        text-decoration: none;
+        color: $titleColor;
+        font-family: $mainFont;
+        letter-spacing: 2px;
+        font-size: 2.5rem;
+    }
+
+    &::before {
+        content: 'CLUSTER';
+        position: absolute;
+        top: 0px;
+        left: 0;
+        height: 50%;
+        overflow: hidden;
+        color: $titleSubColor;
+        font-family: $mainFont;
+        letter-spacing: 2px; 
+        font-size: 2.5rem;
+        pointer-events: none;
+    }
+
+    .eight {
+        position: relative;
+        color: transparent;
+        height: 100%;
+        margin-left: 0.5rem;
+
+        &::before {
+            content: '\2742';
+            position: absolute;
+            color: $titleSubColor;
+            font-size: 1.6rem;
+            top: -1px;
+            left: 0;
+            transition: transform 0.5s;
+            animation-name: title8-top;
+            animation-duration: 3s;
+            animation-delay: 3s;
+        }
+
+        &::after {
+            content: '\2742';
+            position: absolute;
+            color: $titleColor;
+            font-size: 1.6rem;
+            bottom: -2px;
+            left: 0;
+            transition: transform 0.5s;
+            animation-name: title8-bot;
+            animation-duration: 3s;
+            animation-delay: 3s;
+        }
+    }
 }
 
 .error {

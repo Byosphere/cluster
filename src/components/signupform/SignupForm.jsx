@@ -37,6 +37,7 @@ class SignupForm extends React.Component {
             password: '',
             passwordConfirmation: '',
             country: '',
+            parameters: {},
             errors: {},
             isLoading: false,
             stepIndex: 0,

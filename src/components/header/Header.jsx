@@ -64,7 +64,7 @@ class Header extends React.Component {
                     {!this.state.drawerOpen && <Menu color={white} />}
                     {this.state.drawerOpen && <Close color={white} />}
                 </IconButton>
-                <h1><NavLink exact to="/">CLUSTER 8</NavLink></h1>
+                <h1 className="logo"><NavLink exact to="/">CLUSTER<span className="eight">8</span></NavLink></h1>
                 <NavLink exact to="/" className="navlink" activeClassName="active">HOME</NavLink>
                 {isConnected && <div className="connected-menu">
                     <Badge badgeStyle={{ display: this.state.nbNotif ? 'flex' : 'none', top: '3px' }} style={{ padding: 0 }} badgeContent={this.state.nbNotif} primary={true}>
