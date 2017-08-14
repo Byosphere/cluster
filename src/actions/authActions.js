@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SET_AUTH_USER, API_URL } from "../Constants";
-import setAuthorizationToken from '../Utils/setAuthorizationToken';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwt from 'jsonwebtoken';
 
 export function setAuthUser(user) {
@@ -34,7 +34,10 @@ export function login(state) {
 
 export function getAuthUser() {
     if (!localStorage.jwtToken) return Promise.reject(new Error("No user connected"));
-    var userId = jwt.decode(localStorage.jwtToken).sub;
+    var token = jwt.decode(localStorage.jwtToken);
+    if(!token) return Promise.reject(new Error("Token error"));
+    var userId = token.sub;
+    if(!userId) return Promise.reject(new Error("Wrong user ID"));
     return axios.get(API_URL + 'user/' + userId).then(
         (res) => {
             let user = res.data.user;

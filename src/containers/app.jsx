@@ -4,7 +4,7 @@ import Header from '../components/header/Header.jsx';
 import Main from './main/Main.jsx';
 import Footer from './footer/Footer.jsx';
 import Notification from './notification/Notification.jsx';
-import setAuthorizationToken from '../Utils/setAuthorizationToken';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { setAuthUser, getAuthUser } from '../actions/authActions';
 import jwt from 'jsonwebtoken';
 import AppLoading from './apploading/AppLoading.jsx';
