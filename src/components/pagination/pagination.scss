@@ -1,0 +1,16 @@
+.pagination {
+    height: 56px;
+    border-top: 1px solid rgb(224, 224, 224);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        margin: 0 1rem;
+    }
+
+    &>div, &>button {
+        min-width: 60px !important;
+    }
+}

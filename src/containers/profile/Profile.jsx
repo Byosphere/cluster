@@ -35,9 +35,6 @@ class Profile extends React.Component {
                             <Tab label={user.username} value="user">
                                 <UserProfileForm user={user} />
                             </Tab>
-                            <Tab label="Search" value="search">
-                                qsdqd
-                            </Tab>
                             <Tab label="Parameters" value="params">
                                 sqdqsd
                             </Tab>

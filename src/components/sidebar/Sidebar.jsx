@@ -39,7 +39,7 @@ class Sidebar extends React.Component {
             opacity:this.state.display
         };
 
-        if(this.props.auth.isAuthenticated) {
+        if(this.props.auth.isAuthenticated && this.props.auth.user.cluster_id) {
             return (
                 <Card id="sidebar" style={cardStyle}>
                     <CardTitle titleStyle={{ fontFamily: "'PT Sans Narrow',sans-serif" }} titleColor="#2f4154" title="Last messages" subtitle="from your Cluster" />

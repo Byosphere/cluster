@@ -6,6 +6,10 @@
     font-family: 'Acme', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 html, body, #app, #clusterApp {
     height: 100%;
     background: $white;
@@ -160,6 +164,34 @@ h1.logo {
             justify-content: center;
         }
     }
+}
+
+
+.avatar-group {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+    height: 34px;
+
+    &>div {
+        position: absolute;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 30px;
+        top: -30px;
+        transition: top 0.3s;
+    }
+
+    &:hover>div {
+        top:1px;
+    }
+    &.online {border: 2px solid #8BC34A;}
+    &.inactive {border: 2px solid #FF9800;}
+    &:hover {border-color: $highlight;}
 }
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import { DotLoader } from 'halogen';
 import validator from 'validator';
 import { login } from '../../actions/authActions';
 import { addNotification } from '../../actions/notificationAction.jsx';

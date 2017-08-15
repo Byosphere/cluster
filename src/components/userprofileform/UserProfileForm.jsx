@@ -78,21 +78,6 @@ class UserProfileForm extends Component {
                 }
             );
         }
-        // if (this.isDirty() && this.isValid()) {
-        //     this.setState({ isLoading: true, errors: {} });
-        //     this.props.saveUser(this.state.user).then(
-        //         (user) => {
-        //             this.setState({ isLoading: false, user: user, initialUser: clone(user) });
-        //             this.props.addNotification("Your profile has been updated !", "success");
-        //         },
-        //         (err) => {
-        //             this.setState({ errors: { form: err }, isLoading: false });
-        //             if(this.state.errors.form) {
-        //                 this.props.addNotification(this.state.errors.form,"error");
-        //             }
-        //         }
-        //     );
-        // }
     }
 
     reset(e) {
@@ -139,6 +124,8 @@ class UserProfileForm extends Component {
                         <Flag width="30" height="25" nat={user.country} />
                     </div>
                     <div>
+                        <br/>
+                        <img src="../../../../public/images/images/main.jpg" alt=""/>
                         <FileInput name="profilepicture" onChange={this.onChange} hintText="Profile picture" />
                     </div>
 

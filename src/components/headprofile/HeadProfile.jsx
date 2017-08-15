@@ -62,18 +62,19 @@ class HeadProfile extends React.Component {
                         </RadioButtonGroup> */}
                     </div>
                     {user.clusterId && <div className='cluster'>
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
-                        <Avatar src="../../../../public/images/images/main.jpg" size={30} />
+                        <div className='avatar-group'>
+                            <Flag nat='fr' size={30} />
+                            <Avatar src="../../../../public/images/images/main.jpg" size={30} />
+                        </div>
+                        <div className='avatar-group'>
+                            <Flag nat='fr' size={30} />
+                            <Avatar src="../../../../public/images/images/main.jpg" size={30} />
+                        </div>
                     </div>}
-                    {!user.clusterId && <Chip labelColor="#FFF" backgroundColor="#FF5722" onTouchTap={this.handleTouch.bind(this)}>
+                     {!user.clusterId && <Link to="/search"> <Chip labelColor="#FFF" backgroundColor="#FF5722" onTouchTap={this.handleTouch.bind(this)}>
                         <Avatar color="#FFF" icon={<GroupWork />} backgroundColor="#E64A19" />
                         Find a Cluster
-                    </Chip>}
+                    </Chip></Link>} 
                 </div>
                 <div className="user">
                     <div className="inner">

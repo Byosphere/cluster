@@ -9,7 +9,8 @@ class Flag extends React.Component {
         this.state = {
             width: this.props.width || '20',
             height: this.props.height || '20',
-            flagUrl: ''
+            flagUrl: '',
+            size: props.size || ''
         }
 
     }
@@ -30,7 +31,7 @@ class Flag extends React.Component {
             <ReactSVG
                 path={this.state.flagUrl}
                 className="flag"
-                style={{ width: this.state.width + 'px', height: this.state.height + 'px' }}
+                style={this.state.size ? {width:this.state.size+ 'px', height: this.state.size + 'px'} : { width: this.state.width + 'px', height: this.state.height + 'px' }}
             />
         );
     }

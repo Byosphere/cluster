@@ -1,0 +1,15 @@
+@import "../../style/variables.scss";
+
+#search {
+    height: calc(100% - 1rem);
+
+    .main-content {
+        height: 100%;
+    }
+
+    .card {
+        .loader {
+            height: calc(100% - 56px);
+        }
+    }
+}

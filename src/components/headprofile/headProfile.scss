@@ -53,14 +53,14 @@
                 //border-top-left-radius: 100%;
             }
 
-            img {
-                margin: 5px 0 0 6px;
-                border: 2px solid transparent;
-                &.online {border: 2px solid #8BC34A;}
-                &.inactive {border: 2px solid #FF9800;}
-                &:hover {border-color: $highlight;}
-                cursor: pointer;
-            }
+            // img {
+            //     margin: 5px 0 0 6px;
+            //     border: 2px solid transparent;
+            //     &.online {border: 2px solid #8BC34A;}
+            //     &.inactive {border: 2px solid #FF9800;}
+            //     &:hover {border-color: $highlight;}
+            //     cursor: pointer;
+            // }
         }
 
         p {
